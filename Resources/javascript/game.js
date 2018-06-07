@@ -55,7 +55,7 @@ var band;
 var imgSrc;
 
 
-//Selects word from array
+//Selects word object from array
 function selectWord() {
 
     band = bands[Math.floor((Math.random() * 14)) + 1]
@@ -96,6 +96,7 @@ function displayBlanks() {
     }
 }
 
+//clears list after win/loss
 function clearLetterList(){
 
     $("#ltrlist").empty();
@@ -116,6 +117,7 @@ function guessUpdate() {
 
 }
 
+//resets guess tracking display
 function guessUpdateReset() {
 
     $("#ltrsUsed").empty();
@@ -158,6 +160,7 @@ function check() {
 }
 
 
+//Assigns id to each letter of word to check against
 function ltrIdAssign(){
 
     $(".ltr").each(function (index){
@@ -171,6 +174,7 @@ function ltrIdAssign(){
 
 }
 
+//prevents user from entering the same key twice
 function preventDouble(){
     
     var i = 0;
@@ -225,6 +229,7 @@ function preventDouble(){
 
 }
 
+//Assigns IMG SRC
 function AssignImg() {
 
     $("#imgTarget").attr("src", imgSrc);
@@ -232,6 +237,7 @@ function AssignImg() {
 
 }
 
+//Displays IMG on Win
 function displayImg(){
 
     $("#imgTarget").css("visibility", "visible");
@@ -239,12 +245,14 @@ function displayImg(){
 
 }
 
+//Hides IMG on Round Reset
 function hideImg() {
 
     $("#imgTarget").css("visibility", "hidden");
 
 }
 
+//Alerts a Win After Win Image Displayed
 function winAlert(callback) {
 
     var alertMonitor = false;
@@ -260,6 +268,7 @@ function winAlert(callback) {
     callback();
 }
 
+//Resets all round variables
 function roundReset(){
 
     console.log("fred");
@@ -276,6 +285,7 @@ function roundReset(){
 
 }
 
+//Ensures page load before initializing first round
 $(document).ready(function(){
 
     selectWord();
@@ -289,7 +299,7 @@ $(document).ready(function(){
 
 });
 
-
+//Main function controlling game flow and detects win/loss conditions
 function main(){
 
     document.onkeyup = function(event){
